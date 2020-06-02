@@ -40,4 +40,25 @@ def my_calendar(month = datetime.today().month, year = datetime.today().year):
     '''
     print(calendar.month(year, month))
 
-my_calendar(3, 1971)
+def inputs():
+    try:
+        month = input('Enter month number ')
+        year = input('Enter the year ')
+
+        if month == '' and year == '':
+            my_calendar()
+        elif month != '' and year == '':
+            year = datetime.today().year
+            my_calendar(int(month), year)
+        elif month == '' and year != '':
+            month = datetime.today().month
+            my_calendar(month, int(year))
+        elif month != '' and year != '':
+            my_calendar(int(month), int(year))
+    except:
+        print('Calendar expects numbers for month and year arguments')
+
+
+
+#my_calendar(int(month), int(year))
+inputs()
